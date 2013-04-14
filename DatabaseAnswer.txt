@@ -19,6 +19,7 @@ CREATE TABLE Property (
     Size Decimal(6,2) default 0.0
 ) ENGINE=MyISAM;
 INSERT INTO `property`(`Type`, `Title`, `Address`, `Bedroom`, `Living_room`, `Diningroom`, `Size`) VALUES (1,'Nice Hdb flat Near Bishan','Bishan St 21',3,1,1,1240)
+INSERT INTO `property`(`Type`, `Title`, `Address`, `Bedroom`, `Living_room`, `Diningroom`, `Size`) VALUES (2,'Condo Near Yew Tee','Yew Tee St 22',3,1,1,1200)
 
 CREATE TABLE HDB (
     ID BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -27,7 +28,7 @@ CREATE TABLE HDB (
     INDEX idx_PID (PID), 
     FOREIGN KEY (PID) REFERENCES Property(ID)
 ) ENGINE=MyISAM;  // correction : changed InnoDB to MyISAM  |  reason : since HDB table has foreign key (PID) that references to Property table which has MyISAM storage engine, they need to have same storage engines. Otherwise cannot create table.
-INSERT INTO `hdb`(`PID`, `HDBBlock`) VALUES (2,232)
+INSERT INTO `hdb`(`PID`, `HDBBlock`) VALUES (1,232)
 
 
 CREATE TABLE Condo (
